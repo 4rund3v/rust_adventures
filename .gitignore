@@ -1,0 +1,5 @@
+# Ignore all the target directories and their subdirectories
+# The target directory can be anywhere
+target/*
+*/target/*
+*/*/target/*

@@ -54,3 +54,18 @@ source
 cargo run --bin 
 # Generates the binary at the debug folder and it can be run.
 ```
+##### Info:
+Code is indented with 4 spaces !tab
+println! calls a macro, ! indicates that a macro is called.
+line breaks aer indicated with a (;)
+Packages of code are called as ```crates```
+cargo expects the code to be inside the src directory
+outer level files are the readme files and the configuration files.
+To build a cargo project
+```cargo build```
+Then a binary is generated which is then run
+To check if the program builds we can use the check command
+``` cargo check ```
+To build the code for release, use the command
+``` cargo build --release ```
+
