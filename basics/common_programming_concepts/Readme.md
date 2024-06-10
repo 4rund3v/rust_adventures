@@ -49,14 +49,13 @@ integers, floating-point numbers, booleans, characters
 
     Numeric Operations:
       Rust supports the basic mathematical operations such as addition, subtraction, multiplication, division and remainder. Integer division truncates towards 0 to nearest integer ( +, - , * , / , % )
-  ---
+  
   Boolean Type:
     true and false, 1 byte in size.
-  ---
+  
   Character Type:
-    chinese, etc. The character type is 4 bytes in size and represents a unicode scalar value.
-  Character types are defined in single-quote.
-  ---
+    chinese, etc. The character type is 4 bytes in size and represents a unicode scalar value. Character types are defined in single-quote.  
+---
 
 #### Compound Types
   Compound types can group multiple values into one type. The primitive compound types: tuples and arrays
