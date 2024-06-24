@@ -53,17 +53,17 @@ fn circle_details() {
     let theta_deg: f32 = 60.00000000;
     let theta_rad: f32 = theta_deg * (pi / (180 as f32));
     println!("The theta in degree is {theta_deg} and in radians is : {theta_rad}");
-    println!("\n\n\n")
+    println!("\n\n\n");
 }
 
 fn rhombus_details() {
     println!("\n\n The rhombus tuple info is : \n");
-    let p1: (i16, i16) = (-6, 0);
-    let p2: (i16, i16) = (0, 6);
-    let p3: (i16, i16) = (6, 0);
-    let p4: (i16, i16) = (0, -6);
+    let p1: (i16, u16) = (-6, 0);
+    let p2: (i16, u16) = (0, 8);
+    let p3: (i16, u16) = (8, 0);
+    let p4: (u16, i16) = (0, -10);
 
-    let diagonal_squared: i16 = i16::pow(p1.0 - p3.0,2) + i16::pow(p1.1 - p3.1, 2);
+    let diagonal_squared: i16 = i16::pow((p1.0 as i16) - p3.0, 2) + i16::pow((p1.1 as i16) - (p3.1 as i16), 2);
     let diagonal: f32 = (diagonal_squared as f32).sqrt();
     println!("The points of the rhombus is :: 
         P1 : {:?}
@@ -71,11 +71,19 @@ fn rhombus_details() {
         P3 : {:?}
         P4 : {:?}
         Diagonal length is : {:?}", p1, p2, p3, p4, diagonal);
-    let p1_copy:(i16, i16) = p1;
+    let p1_copy:(i16, u16) = p1;
     println!("The copy of the p1 is :{:?}", p1_copy);
+    // Destructuring an tuple
     let (p1_x, p1_y) = p1;
     println!(" The x and y are :: ( {p1_x}, {p1_y})");
-    println!("\n\n\n")
+    println!("\n\n\n");
+
+    let point_arr = [p1.0 as i32, p1.1 as i32, p2.0 as i32, p2.1 as i32];
+    println!("The point array is :: {:?}", point_arr);
+    let point2_arr: [i32; 4] = [p3.0 as i32, p3.1 as i32, p4.0 as i32, p4.1 as i32];
+    println!("The point 2  array is :: {:?}", point2_arr);
+    let p3_point = point2_arr[5];
+    println!("The p3 point is :: {p3_point}");
 }
 
 fn main() {

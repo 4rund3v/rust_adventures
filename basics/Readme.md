@@ -57,7 +57,7 @@ cargo run --bin
 ##### Info:
 Code is indented with 4 spaces !tab
 println! calls a macro, ! indicates that a macro is called.
-line breaks aer indicated with a (;)
+line breaks are indicated with a (;)
 Packages of code are called as ```crates```
 cargo expects the code to be inside the src directory
 outer level files are the readme files and the configuration files.

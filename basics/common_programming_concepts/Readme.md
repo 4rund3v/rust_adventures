@@ -9,7 +9,7 @@ Variables are immutable by default
    - the constant should be set only to a constant expression, not a result computed at runtime
    ``` const TIME_TO_LIVE: u32 = 60*30;   ```
    - Concept of SHADOWING
-     - we can declare a new variable with the same name sa the previous variable
+     - we can declare a new variable with the same name as the previous variable
      - the first variable is shadowed by the second
      - this means that the second variable is the one that the compiler sees.
      - it ( second variable) uses the same variable until it is overshadowed or the scope ends
@@ -35,7 +35,7 @@ integers, floating-point numbers, booleans, characters
       variants :
        i8,i16,i32,i64,i128,isize
       Integer Literals: 
-        Number literals that can be multiple numerica types allow a type suffix such as 76u16, also the literals can use _ , such as 1000 or 1_0000
+        Number literals that can be multiple numerical types allow a type suffix such as 76u16, also the literals can use _ , such as 1000 or 1_000
           decimal literal  --- 2.431 2_431
           hex - 0xff
           octal - 0o77
@@ -63,4 +63,12 @@ integers, floating-point numbers, booleans, characters
         The Tuple is a general way of grouping togehter a number of values and variety of types into one compound type. Tuple have a fixed length once declared they cannot grow or shrink in size.
         to access the tuple by index, var.index
         to print it {:?} then the var ```println!("tuple : {:?}", tup_var);```
+        The tuple without any values has a special name - unit,  the type and value of the unit is -- ()
+        Expressions implicitly return the unit value if they don't return any other value.
+
     - The array type
+        The array is a collection of multiple values, all values must have the same type
+        Useful when we want the data to be allocated in the stack instead of the heap
+        - Similar to the vector type: the vector is a collection provided by the standard library and is allowed to
+          grow or shrink in size.
+
