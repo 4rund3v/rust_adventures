@@ -37,6 +37,7 @@ fn understanding_variables_data_types() {
     // Character
     let heart_eyed_cat: char = '😻';
     println!("The emoji is being printed as :: {heart_eyed_cat}");
+    rhombus_details();
 }
 
 fn circle_details() {
@@ -55,8 +56,30 @@ fn circle_details() {
     println!("\n\n\n")
 }
 
+fn rhombus_details() {
+    println!("\n\n The rhombus tuple info is : \n");
+    let p1: (i16, i16) = (-6, 0);
+    let p2: (i16, i16) = (0, 6);
+    let p3: (i16, i16) = (6, 0);
+    let p4: (i16, i16) = (0, -6);
+
+    let diagonal_squared: i16 = i16::pow(p1.0 - p3.0,2) + i16::pow(p1.1 - p3.1, 2);
+    let diagonal: f32 = (diagonal_squared as f32).sqrt();
+    println!("The points of the rhombus is :: 
+        P1 : {:?}
+        P2 : {:?}
+        P3 : {:?}
+        P4 : {:?}
+        Diagonal length is : {:?}", p1, p2, p3, p4, diagonal);
+    let p1_copy:(i16, i16) = p1;
+    println!("The copy of the p1 is :{:?}", p1_copy);
+    let (p1_x, p1_y) = p1;
+    println!(" The x and y are :: ( {p1_x}, {p1_y})");
+    println!("\n\n\n")
+}
+
 fn main() {
-    println!("Hello, world!, lets understand");
+    println!("Hello, world!, lets understand rust");
     variables();
     println!("Understanding the variable datatypes");
     understanding_variables_data_types();

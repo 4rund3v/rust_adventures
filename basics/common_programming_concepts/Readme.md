@@ -60,4 +60,7 @@ integers, floating-point numbers, booleans, characters
 #### Compound Types
   Compound types can group multiple values into one type. The primitive compound types: tuples and arrays
     - The tuple type
-    - The array type 
+        The Tuple is a general way of grouping togehter a number of values and variety of types into one compound type. Tuple have a fixed length once declared they cannot grow or shrink in size.
+        to access the tuple by index, var.index
+        to print it {:?} then the var ```println!("tuple : {:?}", tup_var);```
+    - The array type
