@@ -1,4 +1,4 @@
-## Common Programmign Concepts
+## Common Programming Concepts
 We learn about the variables, basic types, functions, comments and the control flow.
 
 Variables are immutable by default
@@ -71,4 +71,4 @@ integers, floating-point numbers, booleans, characters
         Useful when we want the data to be allocated in the stack instead of the heap
         - Similar to the vector type: the vector is a collection provided by the standard library and is allowed to
           grow or shrink in size.
-
+---
