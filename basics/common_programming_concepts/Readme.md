@@ -72,3 +72,14 @@ integers, floating-point numbers, booleans, characters
         - Similar to the vector type: the vector is a collection provided by the standard library and is allowed to
           grow or shrink in size.
 ---
+
+## Functions
+  Functions are the main component of the rust programs. they are declared with the `fn` keyword
+  Rust uses snake case as the convention style for the function and variable names.
+  The order of defining the functions does not matter.
+  the function declaration needs the arguments to have their types defined.
+  Rust is an expression based language
+   - Statements - are instructions that perform some action and do not return a value.
+   - Expressions - evaluate to a resultant value. Expressions evaluate to a value and make up most of the code in rust.
+    In functions while returning an expression, there is no `;` Expressions do not include trailing semicolons, if an `;` is added then its turned into an statement and will not return a value, it will return the unit value () instead of the expected one.
+    

@@ -82,9 +82,33 @@ fn rhombus_details() {
     println!("The point array is :: {:?}", point_arr);
     let point2_arr: [i32; 4] = [p3.0 as i32, p3.1 as i32, p4.0 as i32, p4.1 as i32];
     println!("The point 2  array is :: {:?}", point2_arr);
-    let p3_point = point2_arr[5];
+    let p3_point = point2_arr[3];
     println!("The p3 point is :: {p3_point}");
 }
+
+
+fn distance_between_points(px:(i32, i32), py:(i32, i32)) -> f32{
+    println!("The distance between points {:?} to {:?}", px, py);
+    let dist_between_xy: f32 = f32::sqrt( (i32::pow(py.0 - px.0, 2) + i32::pow(py.1 - px.1, 2) ) as f32);
+    println!("The distance calculated is :: {dist_between_xy}");
+    dist_between_xy
+}
+
+
+fn geometry_methods(mut point_u: (i32, i32), point_v: (i32, i32), point_x: (i32, i32), point_y: (i32, i32)) {
+    
+    point_u.0 = point_u.0 + point_u.0;
+    println!("The points provided are  
+        Point u : {:?}
+        Point v : {:?}
+        Point x : {:?}
+        Point y : {:?}
+        ", point_u, point_v, point_x, point_y);
+    let calculated_dist : f32 = distance_between_points(point_x, point_y);
+    println!("The distance calucated between the points is  {:?}",calculated_dist );
+}
+
+
 
 fn main() {
     println!("Hello, world!, lets understand rust");
@@ -92,4 +116,9 @@ fn main() {
     println!("Understanding the variable datatypes");
     understanding_variables_data_types();
     println!("The max time to live is :: {MAX_TIME_TO_LIVE}");
+    println!("The functions block starts here:: ");
+    let points = [(32, 36), (40, 50), (38, 44), (48, 58)];
+    println!("The points defined are {:?}",points);
+    geometry_methods(points[0], points[1], points[2], points[3]);
+    println!("The points defined are {:?}",points);
 }
