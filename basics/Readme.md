@@ -68,4 +68,3 @@ To check if the program builds we can use the check command
 ``` cargo check ```
 To build the code for release, use the command
 ``` cargo build --release ```
-

@@ -96,7 +96,6 @@ fn distance_between_points(px:(i32, i32), py:(i32, i32)) -> f32{
 
 
 fn geometry_methods(mut point_u: (i32, i32), point_v: (i32, i32), point_x: (i32, i32), point_y: (i32, i32)) {
-    
     point_u.0 = point_u.0 + point_u.0;
     println!("The points provided are  
         Point u : {:?}
@@ -107,7 +106,6 @@ fn geometry_methods(mut point_u: (i32, i32), point_v: (i32, i32), point_x: (i32,
     let calculated_dist : f32 = distance_between_points(point_x, point_y);
     println!("The distance calucated between the points is  {:?}",calculated_dist );
 }
-
 
 
 fn main() {
