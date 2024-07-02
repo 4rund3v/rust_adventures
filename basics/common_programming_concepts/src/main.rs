@@ -105,8 +105,25 @@ fn geometry_methods(mut point_u: (i32, i32), point_v: (i32, i32), point_x: (i32,
         ", point_u, point_v, point_x, point_y);
     let calculated_dist : f32 = distance_between_points(point_x, point_y);
     println!("The distance calucated between the points is  {:?}",calculated_dist );
+    trignomentry_understanding();
 }
 
+
+fn trignomentry_understanding() {
+    let triangle: (i32, i32, i32) = (3, 4, 5);
+    const PI_VALUE: f32 = 3.14159265359;
+    let mut hypotenuse: f32 = 0.0;
+    println!("The initial value of the hypotenuse is :: {hypotenuse}");
+    if triangle.0 < triangle.1 {
+        hypotenuse = f32::sqrt((i32::pow(triangle.0, 2) + i32::pow(triangle.1, 2)) as f32);
+    } else {
+        hypotenuse = f32::sqrt((i32::pow(triangle.1, 2) + i32::pow(triangle.2, 2)) as f32);
+    }
+    println!("The hypotenuse of the triangle : {:?} is {}", triangle, hypotenuse);
+    if hypotenuse == triangle.2 as f32 {
+        println!("The hypotenuse was calculated correctly. {:?}", hypotenuse );
+    }
+}
 
 fn main() {
     println!("Hello, world!, lets understand rust");

@@ -82,4 +82,10 @@ integers, floating-point numbers, booleans, characters
    - Statements - are instructions that perform some action and do not return a value.
    - Expressions - evaluate to a resultant value. Expressions evaluate to a value and make up most of the code in rust.
     In functions while returning an expression, there is no `;` Expressions do not include trailing semicolons, if an `;` is added then its turned into an statement and will not return a value, it will return the unit value () instead of the expected one.
-    
+---
+
+### Conditionals and Loops
+Rust provides `if and else if` blocks for checking conditions that evaluate to a boolean value, non boolean values are not automatically converted.
+ Rust also provides the match clause to match the value, like a switch case statement.
+ For loops the rust language provides, `loop`, `while`, and `for`.
+ 
