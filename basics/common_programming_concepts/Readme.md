@@ -85,7 +85,13 @@ integers, floating-point numbers, booleans, characters
 ---
 
 ### Conditionals and Loops
-Rust provides `if and else if` blocks for checking conditions that evaluate to a boolean value, non boolean values are not automatically converted.
- Rust also provides the match clause to match the value, like a switch case statement.
- For loops the rust language provides, `loop`, `while`, and `for`.
- 
+Rust provides `if and else if` blocks for checking conditions that evaluate to a boolean value,
+non boolean values are not automatically converted.
+  Rust also provides the match clause to match the value, like a switch case statement.
+  The if evaluates to an expression, can be used in a let statement, both arms to be having the same data type.
+  For loops the rust language provides, `loop`, `while`, and `for`.
+  loop:
+    - continue: to skip over the flow below it
+    - break: statement to stop the execution of the loop
+    - loop returns the value; when the break expression is followed by the value to be returned.
+    - 

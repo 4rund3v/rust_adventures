@@ -114,8 +114,10 @@ fn trignomentry_understanding() {
     const PI_VALUE: f32 = 3.14159265359;
     let mut hypotenuse: f32 = 0.0;
     println!("The initial value of the hypotenuse is :: {hypotenuse}");
-    if triangle.0 < triangle.1 {
+    if triangle.0 > triangle.1 {
         hypotenuse = f32::sqrt((i32::pow(triangle.0, 2) + i32::pow(triangle.1, 2)) as f32);
+    } else if triangle.0 < 3 {
+        hypotenuse = f32::sqrt((i32::pow(triangle.0, 2) + i32::pow(triangle.2, 2)) as f32);
     } else {
         hypotenuse = f32::sqrt((i32::pow(triangle.1, 2) + i32::pow(triangle.2, 2)) as f32);
     }
@@ -124,6 +126,21 @@ fn trignomentry_understanding() {
         println!("The hypotenuse was calculated correctly. {:?}", hypotenuse );
     }
 }
+
+
+fn understanding_loops() {
+    let mut balance : i32 = 100;
+
+    let remaining = loop {
+        balance -= 10;
+        if balance <= 10 {
+            break balance *3; // the semicolon here is kinda optional, since its the last statement 
+        }
+    };
+    println!("The remaining amount is {:?} from balance : {balance}", remaining);
+        
+}
+
 
 fn main() {
     println!("Hello, world!, lets understand rust");
@@ -136,4 +153,5 @@ fn main() {
     println!("The points defined are {:?}",points);
     geometry_methods(points[0], points[1], points[2], points[3]);
     println!("The points defined are {:?}",points);
+    understanding_loops();
 }
