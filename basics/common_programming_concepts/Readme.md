@@ -31,7 +31,8 @@ integers, floating-point numbers, booleans, characters
        i8 - indicates [ -(2^7) to (2^7) - 1 ]  which is from -128 to 127
        u8 - indicates [ 2^8 - 1 ] which is from 0 to 255
     ```
-    Additional types, isize and usize indicate the size depending on the computer architecture, 32bit or 64bit  (based on the architecture)
+    Additional types, isize(signed) and usize(unsigned) indicate the size depending on the computer architecture, 32bit or 64bit  (based on the architecture)
+    Note while iterating through an array, the index variable is the usize or an variant of the usize variable.
       variants :
        i8,i16,i32,i64,i128,isize
       Integer Literals: 
@@ -94,4 +95,7 @@ non boolean values are not automatically converted.
     - continue: to skip over the flow below it
     - break: statement to stop the execution of the loop
     - loop returns the value; when the break expression is followed by the value to be returned.
+    - the break and continue usually apply to the innermost loops within which they are present
+    - with loop labels we can optionally specify a loop label on a loop, which when used on the label
+      breaks/continues the corresponding loop.
     - 

@@ -43,14 +43,14 @@ fn circle_details() {
     println!("\n\n\n");
     println!("The circle related calculations are as follows");
     let radius: u16 = 43;
-    let pi: f32 = 3.1413570;
-    let circumfrence: f32 = (2 as f32) * pi * (radius as f32);
-    let area: f32 = pi * ((radius * radius) as f32);
+    const PI: f32 = 3.141357786;
+    let circumfrence: f32 = (2 as f32) * PI * (radius as f32);
+    let area: f32 = PI * ((radius * radius) as f32);
     println!("The circle radius is : {radius}");
     println!("The circumfrence is  : {circumfrence}");
     println!("The circle area  is  : {area}");
     let theta_deg: f32 = 60.00000000;
-    let theta_rad: f32 = theta_deg * (pi / (180 as f32));
+    let theta_rad: f32 = theta_deg * (PI / (180 as f32));
     println!("The theta in degree is {theta_deg} and in radians is : {theta_rad}");
     println!("\n\n\n");
 }
@@ -123,9 +123,10 @@ fn geometry_methods(
 
 fn trignomentry_understanding() {
     let triangle: (i32, i32, i32) = (3, 4, 5);
-    const PI_VALUE: f32 = 3.14159265359;
-    let mut hypotenuse: f32 = 0.0;
+    const PI_VALUE: f32 = 3.141592653594245;
+    let mut hypotenuse: f32 = PI_VALUE;
     println!("The initial value of the hypotenuse is :: {hypotenuse}");
+    println!("The value of Pi is :: {PI_VALUE}");
     if triangle.0 > triangle.1 {
         hypotenuse = f32::sqrt((i32::pow(triangle.0, 2) + i32::pow(triangle.1, 2)) as f32);
     } else if triangle.0 < 3 {
@@ -143,18 +144,86 @@ fn trignomentry_understanding() {
 }
 
 fn understanding_loops() {
-    let mut balance: i32 = 100;
-
+    let mut counter: i32 = 17;
+    let mut balance: i32 = 1000;
     let remaining = loop {
-        balance -= 10;
-        if balance <= 10 {
-            break balance * 3; // the semicolon here is kinda optional, since its the last statement
+        counter -= 1;
+        balance -= counter * 4;
+        println!("The balance and counter are :: {:?} & {}", balance, counter);
+        if balance < 1 {
+            println!("Insufficient balance to continue, {balance}");
+            break balance;
+        } else if counter <= 1 {
+            break balance; // the semicolon here is kinda optional, since its the last statement
         }
     };
     println!(
         "The remaining amount is {:?} from balance : {balance}",
         remaining
     );
+
+    let mut cosmos: i32 = 384;
+    'whiler: while cosmos > 16 {
+        cosmos = cosmos / 2;
+        println!("The value of cosmos is :: {cosmos}");
+        if cosmos % 8 == 0 {
+            println!(
+                "The cosmos is divisible by 4, {} --> {}",
+                cosmos,
+                cosmos / 8
+            );
+            break 'whiler;
+        }
+    }
+
+    const FIBBO_NUMS: [i32; 10] = [0, 1, 1, 2, 3, 6, 8, 13, 21, 34];
+    let mut fib_index: usize = 1;
+    let mut fib_sum: i32;
+
+    'fibb_checker: while fib_index < 9 {
+        fib_index += 1;
+        println!("Checking the fibbonacci number at index : {}", fib_index);
+        if fib_index > 1 {
+            fib_sum = FIBBO_NUMS[fib_index - 1] + FIBBO_NUMS[fib_index - 2];
+            if FIBBO_NUMS[fib_index] == fib_sum {
+                println!(
+                    "The fibbonacci number at : index[{}] is correct : {}",
+                    fib_index, FIBBO_NUMS[fib_index]
+                );
+                continue;
+            } else {
+                println!(
+                    "Invalid fibbonacci number at index {} and value : expected:{} found:{}",
+                    fib_index, fib_sum, FIBBO_NUMS[fib_index]
+                );
+                break 'fibb_checker;
+            }
+        }
+    }
+
+    'fibb_printer: for element in FIBBO_NUMS {
+        println!("The element in fibbonacci number is :: {element}");
+    }
+
+    'fibb_checker_for: for fib_index in (2..9) {
+        println!("Checking the fibbonacci number at index : {}", fib_index);
+        if fib_index > 1 {
+            fib_sum = FIBBO_NUMS[fib_index - 1] + FIBBO_NUMS[fib_index - 2];
+            if FIBBO_NUMS[fib_index] == fib_sum {
+                println!(
+                    "The fibbonacci number at : index[{}] is correct : {}",
+                    fib_index, FIBBO_NUMS[fib_index]
+                );
+                continue;
+            } else {
+                println!(
+                    "Invalid fibbonacci number at index {} and value : expected:{} found:{}",
+                    fib_index, fib_sum, FIBBO_NUMS[fib_index]
+                );
+                break 'fibb_checker_for;
+            }
+        }
+    }
 }
 
 fn main() {
