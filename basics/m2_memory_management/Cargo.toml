@@ -1,0 +1,10 @@
+[package]
+name = "memory_management"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[[bin]]
+name = "m2_memory_management"
+path = "src/main.rs"

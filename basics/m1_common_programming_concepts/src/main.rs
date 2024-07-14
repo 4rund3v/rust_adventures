@@ -113,7 +113,7 @@ fn geometry_methods(
         ",
         point_u, point_v, point_x, point_y
     );
-    let calculated_dist: f32 = distance_between_points(point_x, point_y);
+    let calculated_dist: f32 = distance_between_points(point_u, point_y);
     println!(
         "The distance calucated between the points is  {:?}",
         calculated_dist
