@@ -1,3 +1,23 @@
+// Breakdown tasks into atomic functions
+// integrate basic functions into larger modules
+
+
+struct ConfiguredWatchDirs {
+    watch_dirs: [WatchDir],
+}
+
+struct WatchDir {
+}
+
+fn fetch_watch_directory_details() -> ConfiguredWatchDirs {
+    // reads the details of the watch directory from the configurations
+    // returns an struct watch_dir which contains the information of the directory to read
+    let watch_dirs = [WatchDir {}];
+    ConfiguredWatchDirs { watch_dirs:watch_dirs }
+}
+
+
+
 fn main() {
     let proj_scope = "File poller: poll the files as 
         they arrive in a specific folder and move it to another folder, while also add it to a queue.
@@ -24,3 +44,5 @@ fn main() {
         ";
     println!("The scope pf the project is : \n {proj_scope}");
 }
+
+
