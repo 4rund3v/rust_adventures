@@ -41,14 +41,65 @@ To understand this better, firstly the
 	4. The task is done, the memory is to be cleaned up 
 	5. free() is invoked.
   ** In rust the memory is automatically returned once the variable that owns it goes out of scope.**
+  so when the following is executed
+  ```
+  let s1 = String::from("Whoa this string is awesome!");
+  let s2 = s1;
+  ```
+  To be able to use the s1 post assignment to s2, we would need to manually specify that the s2 needs to clone s2.
+  ```
+  let s1 = String::from("Whoa this string is awesome!");
+  let s2 = s1.clone();
+  ```
+  By doing so the s1 can be then used, the clone() method then duplicates the heap data and updates the pointer accordingly.
 
-#### Return Values and Scope
----
+  What happens here is that the s1 is no longer a valid variable, itan invalidated reference
+  Its like a shallow copy and then does a move. s1 was moved into s2
+  Rust will never automatically create a deep copy of the data, its only data in the stack that gets copied.
+  Under the hood when the line `let x = 5; let y = x;` is executed, for the simple scalar data types the underlying, Copy trait, is invoked for the integer type and another copy is made on the stack for the type.
+  The *Copy Trait* can only be applied to static/simple data types and not to those which invoke the allocate() method.
+
 ### References and Borrowing
+  The references to a variable are indicated via the & ( ampersands, representing the refernces)
+  It creates a pointer to the object. They allow you to refer to some value without taking ownership of it.
+  The concept of creating the references via the & is called as borrowing.
+  Since like all variables, the references are also immutable, to have the references as immutable,
 #### Mutable References
+  we add the `&mut` prefix to it, indicating that its a mutable pointer, a pointer to a mutable memory location.
+  Mutable refernces have one big restriction, you can have only 1 mutable reference to a value at a time.
+  The first mutable borrow and its last use must be before a second mutable reference is made and used.
+  Read only references are allowed to be made in parallel/within same scope.
+  Mutable references, only one valid within its scope.
+
+  The benifit of this is that rust can prevent data races at compile time, a data race is similar to a race condition and happens when these three behavior occur.
+    - Two or more pointers access the same data at the same time.
+    - At least one of the pointers is being used to write to the data.
+    - There is no mechanism being used to synchronize access to the data.
+  This ensures that runtime data race conditions are avoided
+  to create multiple mutable references to the same variable, create scopes {} and use them
+
+  Another limitation with immutable references is that it cannot exist in prallel with an mutable reference.
+  The SCOPE OF A REFERENCE IS FROM THE POINT IT IS INTRODUCED AND CONTINUES THROUGH TO THE LAST TIME THAT REFERENCE IS USED. POST WHICH THE REFERENCES IS DE_SCOPED.
 #### Dangling References
+  The scenario where there is a reference to an memory and that memory gets cleared up, but the reference still exists - dangling references, this scenario does not occur since in rust while compiling it checks if the owner of the data is in scope of the reference of the data. If not, compilation fails.
+  Hence this scenario would not occur.
 #### Rules of References
+  At any given time, you can have either one mutable reference or any number of immutable references
+  References must always be valid.
+
 #### Slice Type
+  Another kind of reference : Slices
+  Slices let you reference a contiguous sequence of elements in a collection rather than the whole collection.
+  Slice is a kind of reference, it does not have ownership.
+  In the case of String the pointer datastrcuture holds the following,
+   1. ptr: The address of the location where the memory is located
+   2. len : The length of the pointer, how many slots in the mem is used
+   3. capacity : The max length (in terms of bytes) allocated by the memory-allocator 
+  The  slice reference pointer under the hood has the following
+   1. ptr - the address of the first byte of the starting point for the data
+   2. len - number of blocks/length of the pointer.
+  String slice range indices must occur at valid UTF-8 character boundaries If you attempt to create a string slice in the middle of a multibyte character your program will exit with an error.
+  
 ##### String Slices
 ##### String Literals as Slices
 ##### String Literals as Parameters
